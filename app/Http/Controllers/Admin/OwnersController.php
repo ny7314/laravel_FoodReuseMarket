@@ -93,8 +93,6 @@ class OwnersController extends Controller
             Log::error($e);
             throw $e;
         }
-
-        
         return redirect()
         ->route('admin.owners.index')
         ->with(['message' => 'オーナー登録を実施しました。',
