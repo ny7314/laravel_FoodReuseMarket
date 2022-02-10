@@ -7,7 +7,9 @@ use Illuminate\Http\Request;
 use App\Models\Image;
 use App\Models\Shop;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use App\Models\Product;
+use App\Models\Stock;
 use App\Models\PrimaryCategory;
 use App\Models\Owner;
 
@@ -58,7 +60,7 @@ class ProductController extends Controller
 
         $images = Image::where('owner_id', Auth::id())
         ->select('id', 'title', 'filename')
-        ->orderby('updated_at', 'desc')
+        ->orderBy('updated_at', 'desc')
         ->get();
 
         $categories = PrimaryCategory::with('secondary')
