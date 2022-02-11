@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Cart;
 use App\Models\User;
+use App\Models\Stock;
 use Illuminate\Support\Facades\Auth;
 
 class CartController extends Controller
@@ -50,6 +51,33 @@ class CartController extends Controller
         ->delete();
 
         return redirect()->route('user.cart.index');
+    }
+
+    public function checkout()
+    {
+        $user = User::findOrFail(Auth::id());
+        $products = $user->products;
+
+        // $lineItems = [];
+        foreach($products as $product){
+            $quantity = '';
+            $quantity = Stock::where('product_id', $product->id)->sum('quantity');
+            // $lineItem = [
+            //     'name' => $product->name,
+            //     'information' => $product->information,
+            //     'price' => $product->price,
+            //     'quantity' => $product->pivot->quantity,
+            // ];
+            // array_push($lineItems, $lineItem);
+        }
+        foreach($products as $product){
+            Stock::create([
+                'product_id' => $product->id,
+                'type' => \Constant::PRODUCT_LIST['reduce'],
+                'quantity' => $product->pivot->quantity * -1,
+            ]);
+        }
+        dd('test');
     }
 
 }
