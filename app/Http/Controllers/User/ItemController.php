@@ -27,9 +27,11 @@ class ItemController extends Controller
         });
     }
 
-    public function index()
+    public function index(Request $request)
     {
-        $products = Product::availableItems()->get();
+        $products = Product::availableItems()
+        ->sortOrder($request->sort)
+        ->get();
 
         return view('user.index', compact('products'));
     }
@@ -40,8 +42,8 @@ class ItemController extends Controller
         $quantity = Stock::where('product_id', $product->id)
         ->sum('quantity');
 
-        if($quantity > 9999){
-            $quantity = 9999;
+        if($quantity > 999){
+            $quantity = 999;
         }
 
         return view('user.show', compact('product', 'quantity'));
