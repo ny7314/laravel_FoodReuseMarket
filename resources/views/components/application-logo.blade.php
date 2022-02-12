@@ -1,0 +1,1 @@
+<img src="{{ asset("images/logo-p&e.png") }}" alt="">
