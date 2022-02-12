@@ -77,7 +77,17 @@ class CartController extends Controller
                 'quantity' => $product->pivot->quantity * -1,
             ]);
         }
-        dd('test');
+        
+    }
+
+    public function success()
+    {
+        Cart::where('user_id', Auth::id())->delete();
+
+        return redirect()
+        ->route('user.items.index')
+        ->with(['message' => '在庫を変更しました。',
+                'status' => 'info']);
     }
 
 }
