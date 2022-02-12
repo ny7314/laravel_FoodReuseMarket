@@ -28,7 +28,7 @@
               </select>
             </div>
             <div>
-              <span class="text-sm">表示件数<br>
+              <span class="text-sm">表示件数</span><br>
               <select id="pagination" name="pagination">
                 <option value="20"
                   @if(\Request::get('pagination') === '20')
