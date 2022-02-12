@@ -39,6 +39,7 @@ class ProductController extends Controller
         $ownerInfo = Owner::with('shop.product.imageFirst')
         ->where('id', Auth::id())->get();
 
+        // ->paginate($request->pagination ?? '20');
         // foreach($ownerInfo as $owner){
         //     foreach($owner->shop->product as $product)
         //         dd($product->imageFirst->filename);
