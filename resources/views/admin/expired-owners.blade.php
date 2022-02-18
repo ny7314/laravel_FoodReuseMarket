@@ -1,7 +1,7 @@
 <x-app-layout>
   <x-slot name="header">
       <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-          期限切れオーナー一覧
+          削除店舗一覧
       </h2>
   </x-slot>
 
