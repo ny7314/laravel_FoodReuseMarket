@@ -26,26 +26,11 @@ class OwnersController extends Controller
 
     public function index()
     {
-        // $data_now = Carbon::now();
-        // $data_parse = Carbon::parse(now());
-        // echo $data_now->year;
-        // echo '<br>';
-        // echo $data_parse;
 
-
-        // $e_all = Owner::all();
-        // $q_get = DB::table('owners')->select('name','created_at')->get();
-        // $q_first = DB::table('owners')->select('name')->first();
-
-        // $c_test = collect([
-        //     'name' => 'テスト'
-        // ]);
-
-        // var_dump($q_first);
-
-        // dd($e_all, $q_get, $q_first, $c_test);
         $owners = Owner::select('id', 'name', 'email', 'created_at')
         ->paginate(3);
+        // $shops = Shop::select('id','name','created_at')
+        // ->paginate(3);
         
         return view('admin.owners.index', compact('owners'));
     }
@@ -76,17 +61,22 @@ class OwnersController extends Controller
 
         try{
             DB::transaction(function () use($request) {
-                $owner = Owner::create([
+                // $owner = Owner::create([
+                //     'name' => $request->name,
+                //     'email' => $request->email,
+                //     'password' => Hash::make($request->password),
+                // ]);
+                // Shop::create([
+                //     'owner_id' => $owner->id,
+                //     'name' => '店名を入力してください',
+                //     'information' => '',
+                //     'filename' => '',
+                //     'is_selling' => true,
+                // ]);
+                $shop = Shop::create([
                     'name' => $request->name,
                     'email' => $request->email,
                     'password' => Hash::make($request->password),
-                ]);
-                Shop::create([
-                    'owner_id' => $owner->id,
-                    'name' => '店名を入力してください',
-                    'information' => '',
-                    'filename' => '',
-                    'is_selling' => true,
                 ]);
             }, 2);
         }catch(Throwable $e){
@@ -95,7 +85,7 @@ class OwnersController extends Controller
         }
         return redirect()
         ->route('admin.owners.index')
-        ->with(['message' => 'オーナー登録を実施しました。',
+        ->with(['message' => '店舗を登録しました。',
                 'status' => 'info',
                 ]);
     }

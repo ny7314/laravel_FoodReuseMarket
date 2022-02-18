@@ -18,10 +18,10 @@
                         {{ __('Dashboard') }}
                     </x-nav-link>
                     <x-nav-link :href="route('admin.owners.index')" :active="request()->routeIs('admin.owners.index')">
-                        店舗一覧
+                        担当者(店舗)一覧
                     </x-nav-link>
                     <x-nav-link :href="route('admin.expired-owners.index')" :active="request()->routeIs('admin.expired-owners.index')">
-                        削除店舗一覧
+                        削除一覧
                     </x-nav-link>
                 </div>
             </div>
@@ -75,10 +75,10 @@
                 {{ __('Dashboard') }}
             </x-responsive-nav-link>
             <x-responsive-nav-link :href="route('admin.owners.index')" :active="request()->routeIs('admin.owners.index')">
-                店舗一覧
+                担当者(店舗)一覧
             </x-responsive-nav-link>
             <x-responsive-nav-link :href="route('admin.expired-owners.index')" :active="request()->routeIs('admin.expired-owners.index')">
-                削除店舗一覧
+                削除一覧
             </x-responsive-nav-link>
         </div>
 
