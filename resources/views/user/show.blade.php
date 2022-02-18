@@ -14,29 +14,29 @@
                       <div class="swiper-container">
                         <div class="swiper-wrapper">
                           <div class="swiper-slide">
-                            @if($product->imageFirst->filename !== null)
-                              <img src="{{ asset('storage/products/' . $product->imageFirst->filename )}} ">
+                            @if(optional($product->imageFirst)->filename)
+                              <img src="{{ Storage::disk('s3')->url('storage/products/' . $product->imageFirst->filename )}} ">
                             @else
                               <img src="">
                             @endif
                           </div>
                           <div class="swiper-slide">
-                            @if($product->imageSecond->filename !== null)
-                              <img src="{{ asset('storage/products/' . $product->imageSecond->filename )}} ">
+                            @if(optional($product->imageSecond)->filename)
+                              <img src="{{ Storage::disk('s3')->url('storage/products/' . $product->imageSecond->filename )}} ">
                             @else
                               <img src="">
                             @endif
                           </div>
                           <div class="swiper-slide">
-                            @if($product->imageThird->filename !== null)
-                              <img src="{{ asset('storage/products/' . $product->imageThird->filename )}} ">
+                            @if(optional($product->imageThird)->filename)
+                              <img src="{{ Storage::disk('s3')->url('storage/products/' . $product->imageThird->filename )}} ">
                             @else
                               <img src="">
                             @endif
                           </div>
                           <div class="swiper-slide">
-                            @if($product->imageFourth->filename !== null)
-                              <img src="{{ asset('storage/products/' . $product->imageFourth->filename )}} ">
+                            @if(optional($product->imageFourth)->filename)
+                              <img src="{{ Storage::disk('s3')->url('storage/products/' . $product->imageFourth->filename )}} ">
                             @else
                               <img src="">
                             @endif
@@ -84,7 +84,7 @@
               <div class="mb-4 text-center">{{ $product->shop->name }}</div>
               <div class="mb-4 text-center">
                 @if($product->shop->filename !== null)
-                  <img class="mx-auto w-40 h-40 object-cover rounded-full" src="{{ asset('storage/shops/' . $product->shop->filename )}} ">
+                  <img class="mx-auto w-40 h-40 object-cover rounded-full" src="{{ Storage::disk('s3')->url('storage/shops/' . $product->shop->filename )}} ">
                 @else
                   <img src="">
                 @endif
