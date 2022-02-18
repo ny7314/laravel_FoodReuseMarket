@@ -1,10 +1,10 @@
 ## 在庫管理アプリケーション　--rakuzaico--
-git clone
+
 git clone https://github.com/ny7314/laravel_rakuzaico.git
 
 git clone時のブランチを指定してダウンロードする場合
 
-git clone -b ブランチ名 https://github.com/ny7314/laravel_rakuzaico.git
+git clone -b https://github.com/ny7314/laravel_rakuzaico.git
 で実行してください。
 または、zipファイルでダウンロードしてください。
 
@@ -18,12 +18,12 @@ git clone -b ブランチ名 https://github.com/ny7314/laravel_rakuzaico.git
 
 .envファイルの中の環境を変更
 
-DB_CONNECTION=mysql
-DB_HOST=127.0.0.1
-DB_PORT=8889
-DB_DATABASE=laravel_rakuzaico
-DB_USERNAME=rakuzaico
-DB_PASSWORD=password123
+- DB_CONNECTION=mysql
+- DB_HOST=127.0.0.1
+- DB_PORT=8889
+- DB_DATABASE=laravel_rakuzaico
+- DB_USERNAME=rakuzaico
+- DB_PASSWORD=password123
 
 XAMPP/MAMPまたは他の開発環境でDBを起動後
 
@@ -49,6 +49,7 @@ storageフォルダにリンク後、
 
 storage/app/public/productsフォルダ内に
 保存すると表示されます。
+
 (productsフォルダがない場合は作成してください。)
 
 ショップの画像も表示する場合は、
