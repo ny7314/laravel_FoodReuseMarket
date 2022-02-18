@@ -4,7 +4,7 @@ git clone https://github.com/ny7314/laravel_rakuzaico.git
 
 git clone時のブランチを指定してダウンロードする場合
 
-git clone -b https://github.com/ny7314/laravel_rakuzaico.git
+git clone -b (ブランチ名) https://github.com/ny7314/laravel_rakuzaico.git
 で実行してください。
 または、zipファイルでダウンロードしてください。
 
