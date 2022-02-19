@@ -20,50 +20,56 @@ class CategorySeeder extends Seeder
                 'sort_order' => 1,
             ],
             [
-                'name' => 'オンライン弁当用包材',
+                'name' => '結膳包材',
                 'sort_order' => 2,
             ],
             [
-                'name' => 'パーティー用包材',
+                'name' => 'その他',
                 'sort_order' => 3,
             ],
         ]);
         DB::table('secondary_categories')->insert([
             [
-                'name' => '弁当箱',
+                'name' => '一段弁当',
                 'sort_order' => 1,
                 'primary_category_id' => 1,
             ],
             [
-                'name' => '弁当蓋',
+                'name' => '二段弁当',
                 'sort_order' => 2,
                 'primary_category_id' => 1,
             ],
             [
-                'name' => '箸',
+                'name' => '三段弁当',
                 'sort_order' => 3,
                 'primary_category_id' => 1,
             ],
             [
-                'name' => 'おしぼり',
+                'name' => '１３仕切り弁当',
                 'sort_order' => 4,
                 'primary_category_id' => 2,
             ],
             [
-                'name' => '持ち帰り袋',
+                'name' => '９仕切り弁当',
                 'sort_order' => 5,
                 'primary_category_id' => 2,
             ],
             [
-                'name' => '保冷剤',
+                'name' => '焼肉弁当',
                 'sort_order' => 6,
                 'primary_category_id' => 2,
             ],
             [
-                'name' => 'おしながき',
+                'name' => '六角弁当',
                 'sort_order' => 7,
+                'primary_category_id' => 2,
+            ],
+            [
+                'name' => '持ち帰り袋',
+                'sort_order' => 8,
                 'primary_category_id' => 3,
             ],
+
         ]);
     }
 }
